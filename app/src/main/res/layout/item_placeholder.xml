@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/margin_8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toLeftOf="@+id/loc_identifier"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="@dimen/margin_8">
+
+        <TextView
+            android:id="@+id/contactname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Haseeb"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:maxLines="2"/>
+
+        <TextView
+            android:id="@+id/contactnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4"
+            android:textColor="@color/light_grey"
+            android:textSize="@dimen/text_13"
+            android:text="9901569274" />
+
+        <TextView
+            android:id="@+id/contactemail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_grey"
+            android:layout_marginTop="@dimen/margin_4"
+            android:textSize="@dimen/text_12"
+            android:text="haseebvp9@gmail.com" />
+    </LinearLayout>
+    
+    <ImageView
+        android:id="@+id/loc_identifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/loc"
+        android:layout_alignParentRight="true"/>
+
+
+</RelativeLayout>

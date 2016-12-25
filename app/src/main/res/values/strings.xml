@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ContactsMap</string>
+    <string name="google_maps_key">AIzaSyBhirR_yaHv2zaGavzSJ5HQmodIVwC_qEE</string>
+    <string name="mainheading">Contacts Map</string>
+</resources>
