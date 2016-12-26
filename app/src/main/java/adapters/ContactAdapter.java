@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.ContactModel;
+import network.CheckConnectivity;
+import viewAddons.CustomMessage;
 
 /**
  * Created by haseeb on 23/12/16.
@@ -110,8 +112,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ((MainActivity) context).selectFragment(1);
-                    ((MainActivity) context).updateMap(position);
+                    if (CheckConnectivity.isNetworkAvailable(context)) {
+                        ((MainActivity) context).selectFragment(1);
+                        ((MainActivity) context).updateMap(position);
+                    }
+                    else {
+                        CustomMessage.getInstance().CustomMessage(context, "Internet not available!");
+                    }
                 }
             });
         }

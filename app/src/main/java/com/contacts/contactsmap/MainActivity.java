@@ -35,6 +35,7 @@ import adapters.Pager;
 import de.greenrobot.event.EventBus;
 import models.MessageEvent;
 import models.UpdateMapEvent;
+import network.CheckConnectivity;
 import viewAddons.CustomMessage;
 import constants.UrlParams;
 import models.ContactModel;
@@ -74,7 +75,12 @@ public class MainActivity extends AppCompatActivity implements ApiCommunication,
         Loader(true, "Fetching Data ...");
 
         getSupportLoaderManager().initLoader(1, null, this);
-        GetData();
+        if (CheckConnectivity.isNetworkAvailable(MainActivity.this)) {
+            GetData();
+        }
+        else {
+            Loader(true, "Internet is not available. Syncing local contacts ...");
+        }
 
         tb_tabLayout.setTabTextColors(Color.parseColor("#BDBDBD"), Color.BLACK);
         tb_tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -105,7 +111,8 @@ public class MainActivity extends AppCompatActivity implements ApiCommunication,
     @Override
     public void onErrorCallback(VolleyError error, String flag) {
         loader.hide();
-        CustomMessage.getInstance().CustomMessage(this, "Oops. Something went wrong!");
+        Loader(true, "Error from server. Syncing local contacts ...");
+//        CustomMessage.getInstance().CustomMessage(this, "Oops. Something went wrong!");
     }
 
     public void selectFragment(int position){
